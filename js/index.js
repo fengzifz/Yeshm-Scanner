@@ -85,8 +85,9 @@ var app = {
             var datas = {};
             datas.num = $('#pro-num').val();
             datas.pid = $('#pro-pid').val();
-            alert(datas.num + ', ' + datas.pid);
+
             e.preventDefault();
+            
             $.ajax({
                 type: 'GET',
                 url: BASE_URL + 'index.php/ajax/sale_add',
