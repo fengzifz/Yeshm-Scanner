@@ -135,5 +135,6 @@ h1 {
 }
 
 .right {
+    display: inline-block;
     text-align: left;
 }
