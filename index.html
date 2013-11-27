@@ -18,11 +18,12 @@
             <p id="info"></p>
             <p id="scan-error"></p>
             <div id="product-info">
-                <p id="product-name"></p>
-                <p id="product-price"></p>
-                <p id="pdocuct-qut"></p>
-                <p id="confirm"><a href="#" id="confirm-bnt">确认购买</a></p>
-                <p id="status"></p>
+                <div class="row"><span class="label">产品名:</span> <span id="pro-name"></span></div>
+                <div class="row"><span class="label">价格:</span> <span id="pro-price"></span></div>
+                <div class="row"><span class="label">库存:</span> <span id="pro-amount"></span></div>
+                <div class="row"><span class="label">条形码:</span> <span id="pro-barcode"></span></div>
+                <div class="row"><input type="submit" value="购买" /></div>
+                <div class="row status"></div>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>

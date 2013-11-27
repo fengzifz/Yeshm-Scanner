@@ -45,14 +45,36 @@ var app = {
                                 'Format: ' + result.format  + '<br/>' + 
                                 'Cancelled: ' + result.cancelled;
             }
-
-            document.getElementById("info").innerHTML = result.text;
+            document.getElementById('info').innerHTML = result.text;
+            app.showProduct(result.text);
 
         }, function (error) { 
             var scanError = document.getElementById('scan-error');
             scanError.innerHTML = error;
             scanError.style.display = 'block';
         } );
+    },
+
+    showProduct: function(barcode){
+        $.ajax({
+            type: 'GET',
+            url: 'http://14.20.195.242/index.php/ajax/product_list',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            jsonpCallback: 'success',
+            data: {'barcode':barcode},
+            success: function(data){
+                var info = data[0];
+                document.getElementById('product-info').style.display = 'block';
+                document.getElementById('pro-name').innerHTML = info['name'];
+                document.getElementById('pro-price').innerHTML = info['price'];
+                document.getElementById('pro-amount').innerHTML = info['amount'];
+                document.getElementById('pro-barcode').innerHTML = info['barcode'];
+            },
+            error: function(err){
+                alert('error');
+            }
+        });
     }
 };
-

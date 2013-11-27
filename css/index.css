@@ -45,6 +45,18 @@ body {
     width:100%;
 }
 
+.row {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.row .label {
+    width: 110px;
+    display: inline-block;
+    text-align: right;
+}
+
 /* Portrait layout (default) */
 .app {
     width: 100%;
@@ -112,4 +124,9 @@ h1 {
     width: 100%;
     height: 191px;
     background: url(../img/icon-scan.png) no-repeat center center;
+}
+
+#product-info {
+    display: none;
+    margin-top: 20px;
 }
