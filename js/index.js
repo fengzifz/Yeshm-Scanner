@@ -85,7 +85,7 @@ var app = {
             var datas = {};
             datas.num = $('#pro-num').val();
             datas.pid = $('#pro-pid').val();
-
+            alert(datas.num + ', ' + datas.pid);
             e.preventDefault();
             $.ajax({
                 type: 'GET',
@@ -102,7 +102,6 @@ var app = {
                     alert('buy error');
                 }
             });
-
         });
     }
 };
