@@ -133,3 +133,7 @@ h1 {
     width: 350px;
     margin: 0 auto;
 }
+
+.right {
+    text-align: left;
+}
