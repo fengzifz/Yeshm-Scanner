@@ -89,7 +89,7 @@ var app = {
             e.preventDefault();
             $.ajax({
                 type: 'GET',
-                url: BASE_URL + 'index.php/ajas/sale_add',
+                url: BASE_URL + 'index.php/ajax/sale_add',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'jsonp',
                 jsonpCallback: 'success',
