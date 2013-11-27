@@ -45,7 +45,6 @@ var app = {
                                 'Format: ' + result.format  + '<br/>' + 
                                 'Cancelled: ' + result.cancelled;
             }
-            document.getElementById('info').innerHTML = result.text;
             app.showProduct(result.text);
 
         }, function (error) { 
@@ -63,7 +62,7 @@ var app = {
             dataType: 'jsonp',
             jsonp: 'callback',
             jsonpCallback: 'success',
-            data: {'barcode':barcode},
+            data: {'barcode': barcode},
             success: function(data){
                 var info = data[0];
                 document.getElementById('product-info').style.display = 'block';

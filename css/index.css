@@ -55,6 +55,7 @@ body {
     width: 110px;
     display: inline-block;
     text-align: right;
+    float: left;
 }
 
 /* Portrait layout (default) */
@@ -129,4 +130,6 @@ h1 {
 #product-info {
     display: none;
     margin-top: 20px;
+    width: 350px;
+    margin: 0 auto;
 }
