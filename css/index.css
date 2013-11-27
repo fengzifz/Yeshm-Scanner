@@ -51,13 +51,6 @@ body {
     margin-bottom: 10px;
 }
 
-.row .label {
-    width: 110px;
-    display: inline-block;
-    text-align: right;
-    float: left;
-}
-
 /* Portrait layout (default) */
 .app {
     width: 100%;
@@ -134,7 +127,15 @@ h1 {
     margin: 0 auto;
 }
 
-.right {
+.row .label {
+    width: 110px;
     display: inline-block;
+    text-align: right;
+    float: left;
+    margin-right: 25px;
+}
+
+.right {
+    display: block;
     text-align: left;
 }
