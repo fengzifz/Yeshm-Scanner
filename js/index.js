@@ -72,7 +72,7 @@ var app = {
                 document.getElementById('pro-price').innerHTML = info['price'];
                 document.getElementById('pro-amount').innerHTML = info['amount'];
                 document.getElementById('pro-barcode').innerHTML = info['barcode'];
-                document.getElementById('pro-id').setAttribute('value', info['id']);
+                document.getElementById('pro-pid').setAttribute('value', info['id']);
             },
             error: function(err){
                 alert('query error');
