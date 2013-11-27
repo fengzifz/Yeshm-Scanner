@@ -75,7 +75,7 @@ var app = {
                 document.getElementById('pro-id').setAttribute('value', info['id']);
             },
             error: function(err){
-                alert('error');
+                alert('query error');
             }
         });
     },
@@ -92,13 +92,14 @@ var app = {
                 url: BASE_URL + 'index.php/ajax/sale_add',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'jsonp',
+                jsonp: 'callback',
                 jsonpCallback: 'success',
                 data: {'num':datas.num, 'pid':datas.pid},
                 success: function(data){
                     alert(data);
                 },
                 error: function(err){
-                    alert('error');
+                    alert('buy error');
                 }
             });
 
