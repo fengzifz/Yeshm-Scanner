@@ -11,18 +11,29 @@
         <div class="app">
             <h1>Yeshm Scanner</h1>
             <p><a href="#" class="topcoat-button" id="scan"> </a></p>
-            <!-- <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div> -->
             <p id="info"></p>
             <p id="scan-error"></p>
             <div id="product-info">
                 <div class="row"><span class="label">产品名:</span> <span id="pro-name" class="right"></span></div>
+                <div class="row"><span class="label">条形码:</span> <span id="pro-barcode" class="right"></span></div>
                 <div class="row"><span class="label">价格:</span> <span id="pro-price" class="right"></span></div>
                 <div class="row"><span class="label">库存:</span> <span id="pro-amount" class="right"></span></div>
-                <div class="row"><span class="label">条形码:</span> <span id="pro-barcode" class="right"></span></div>
-                <div class="row"><input type="submit" value="购买" /></div>
+                <div class="row">
+                    <span class="label">购买数量:</span> 
+                    <span class="right">
+                        <select id="pro-num" name="num">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="row">
+                    <input id="pro-id" name="pid" type="hidden" value />
+                    <input id="buy" type="submit" value="购买" />
+                </div>
                 <div class="row status"></div>
             </div>
         </div>

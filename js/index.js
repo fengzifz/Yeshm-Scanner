@@ -1,9 +1,11 @@
-var DEBUG = false;
+var DEBUG = false,
+    BASE_URL = 'http://14.20.195.242/';
 
 var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+        this.buyProduct();
     },
 
     // Bind Event Listeners
@@ -57,7 +59,7 @@ var app = {
     showProduct: function(barcode){
         $.ajax({
             type: 'GET',
-            url: 'http://14.20.195.242/index.php/ajax/product_list',
+            url: BASE_URL + 'index.php/ajax/product_list',
             contentType: 'application/json; charset=utf-8',
             dataType: 'jsonp',
             jsonp: 'callback',
@@ -70,10 +72,36 @@ var app = {
                 document.getElementById('pro-price').innerHTML = info['price'];
                 document.getElementById('pro-amount').innerHTML = info['amount'];
                 document.getElementById('pro-barcode').innerHTML = info['barcode'];
+                document.getElementById('pro-id').setAttribute('value', info['id']);
             },
             error: function(err){
                 alert('error');
             }
+        });
+    },
+
+    buyProduct: function(){
+        $('#buy').click(function(e){
+            var datas = {};
+            datas.num = $('#pro-num').val();
+            datas.pid = $('#pro-pid').val();
+
+            e.preventDefault();
+            $.ajax({
+                type: 'GET',
+                url: BASE_URL + 'index.php/ajas/sale_add',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'jsonp',
+                jsonpCallback: 'success',
+                data: {'num':datas.num, 'pid':datas.pid},
+                success: function(data){
+                    alert(data);
+                },
+                error: function(err){
+                    alert('error');
+                }
+            });
+
         });
     }
 };
