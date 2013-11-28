@@ -47,7 +47,11 @@ var app = {
                 alert('content: ' + result.text + ', type: ' + typeof result.text + ', length: ' + result.text.length);
             }
 
-            app.showProduct(result.text);
+            if(result.text.length == 0){
+                alert('没有扫描结果');
+            } else {
+                app.showProduct(result.text);
+            }
 
         }, function (error) { 
             var scanError = document.getElementById('scan-error');
@@ -57,11 +61,6 @@ var app = {
     },
 
     showProduct: function(barcode){
-
-        // if(barcode.length == 0){
-        //     // 没有扫描条形码
-        //     return;
-        // }
 
         $.ajax({
             type: 'GET',

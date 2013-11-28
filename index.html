@@ -4,80 +4,114 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>Yeshm Scanner</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Yeshm Scanner</title>
     </head>
-    <body>
-        <header>
-            <h1 class="text-center">Yeshm Scanner</h1>
-        </header>
+    <body class="scan">
 
-        <div class="app">
-            
-            <!-- product info start -->
-            <div id="product-info">
-                <div class="row" id="product-title"><h2 class="text-center">产品信息</h2></div>
-                <div class="row">
-                    <div class="col-xs-3 text-right p-l">产品名:</div> 
-                    <div id="pro-name" class="col-xs-9 p-d">雀巢咖啡丝滑拿铁</div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3 text-right p-l">条形码:</div> 
-                    <div id="pro-barcode" class="col-xs-9 p-d"></div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3 text-right p-l">价格:</div> 
-                    <div id="pro-price" class="col-xs-9 p-d"></div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3 text-right p-l">库存:</div> 
-                    <div id="pro-amount" class="col-xs-9 p-d"></div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3 text-right p-l">购买数量:</div> 
-                    <div id="select-num" class="col-xs-9 p-d">
-                        <button id="amount" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            1
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
-                        </ul>
-                        <select id="pro-num" name="num">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="buy-wrap" class="row">
-                    <input id="pro-pid" name="pid" type="hidden" value />
-                    <button id="buy" type="submit" class="btn btn-primary btn-lg">立即购买</button>
-                </div>
+        <!-- login start -->
+        <div class="login" style="display:none;">
+            <div class="row">
+                <input id="username" type="text" name="username" />
             </div>
-            <!-- product info end -->
+            <div class="row">
+                <input id="password" type="text" name="password" />
+            </div>
+        </div>
+        <!-- login end -->
+        
+        <!-- 扫描 Start -->
+        <div class="scan" style="display:none;">
+            <a id="logo"></a>
+            <a href="#" class="topcoat-button" id="scan"> </a>
+        </div>
+        <!-- 扫描 End -->
 
-            <div id="scan-btn">
+        <!-- 结果 Start -->
+        <div class="result">
+            <header>
+                <h1 class="text-center">Yeshm Scanner</h1>
+            </header>
+
+            <!-- 没有结果 Start -->
+            <div class="result-none" style="display:none;">
+                <div class="result-none-text"></div>
                 <a href="#" class="topcoat-button" id="scan"> </a>
             </div>
-            <div id="scan-error" class="row"></div>
+            <!-- 没有结果 End -->
 
+            <!-- 返回结果 Start -->
+            <div class="result-show">
+                <div class="app">
+                
+                    <!-- product info start -->
+                    <div id="product-info">
+
+                        <div class="row" id="product-title">
+                            <h2 class="text-center">产品信息</h2>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-3 text-right p-l">产品名:</div> 
+                            <div id="pro-name" class="col-xs-9 p-d">雀巢咖啡丝滑拿铁</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-3 text-right p-l">条形码:</div> 
+                            <div id="pro-barcode" class="col-xs-9 p-d"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-3 text-right p-l">价格:</div> 
+                            <div id="pro-price" class="col-xs-9 p-d"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-3 text-right p-l">库存:</div> 
+                            <div id="pro-amount" class="col-xs-9 p-d"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-3 text-right p-l">购买数量:</div> 
+                            <div id="select-num" class="col-xs-9 p-d">
+                                <button id="amount" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">1</button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li>
+                                    <li>5</li>
+                                </ul>
+                                <select id="pro-num" name="num">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row" id="buy-wrap">
+                            <input id="pro-pid" name="pid" type="hidden" value />
+                            <button id="buy" type="submit" class="btn btn-primary btn-lg">立即购买</button>
+                        </div>
+                    </div>
+                    <!-- product info end -->
+
+                    <a href="#" class="topcoat-button" id="scan"> </a>
+
+                </div>
+            </div>
+            <!-- 返回结果 End -->
+
+            <!-- <footer class="navbar-fixed-bottom"></footer> -->
         </div>
-
-        <footer class="navbar-fixed-bottom">
-
-        </footer>
-
+        <!-- 结果 End -->
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="barcodescanner.js"></script>
-        
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
         <script type="text/javascript" src="js/ui.js"></script>
