@@ -59,10 +59,10 @@ var app = {
 
     showProduct: function(barcode){
 
-        if(barcode.length == 0){
-            // 没有扫描条形码
-            return;
-        }
+        // if(barcode.length == 0){
+        //     // 没有扫描条形码
+        //     return;
+        // }
 
         $.ajax({
             type: 'GET',
