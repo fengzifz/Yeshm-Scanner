@@ -38,6 +38,24 @@ footer,
     border-radius: 10px 10px 0 0;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 768px){
+
+    header,
+    footer, 
+    #product-title {
+        padding: 30px 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 54px;
+    }
+}
+
 
 /** {
     -webkit-touch-callout: none;                
