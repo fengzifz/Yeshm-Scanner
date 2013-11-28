@@ -15,9 +15,10 @@ body.result {
     background-attachment:fixed;
 }
 
-body.scan {
+/* 暂时隐藏 */
+/*body.scan {
     background-color: #252525;
-}
+}*/
 
 .app {
     padding: 0 30px;
