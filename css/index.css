@@ -36,27 +36,23 @@ body {
         color-stop(0.51, #E4E4E4)
     );
     background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-family:'Microsoft Yahei', 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:20px;
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
     width:100%;
 }
 
 .row {
-    width: 100%;
-    height: 30px;
-    margin-bottom: 10px;
+    height: 55px;
 }
 
 /* Portrait layout (default) */
 .app {
-    width: 100%;
     height: 100%;
     text-align:center;
-    padding-top: 160px;
+    padding: 0 30px;
 }
 
 /* Landscape layout (with min-width) */
@@ -65,8 +61,8 @@ body {
 }
 
 h1 {
-    font-size:24px;
-    font-weight:normal;
+    font-size:30px;
+    font-weight:bold;
     margin:0px;
     overflow:visible;
     padding:0px;
@@ -123,8 +119,17 @@ h1 {
 #product-info {
     display: none;
     margin-top: 20px;
-    width: 350px;
-    margin: 0 auto;
+    width: 100%;
+    margin: 30px auto;
+    overflow: hidden;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#product-info .row:nth-child(even){
+    background: rgba(0,0,0,.04);
 }
 
 .row .label {
@@ -133,9 +138,36 @@ h1 {
     text-align: right;
     float: left;
     margin-right: 25px;
+    line-height: 55px;
 }
 
 .right {
     display: block;
     text-align: left;
+}
+
+.title-h2 {
+    margin: 0 !important;
+    line-height: 40px;
+}
+
+#footer {
+    height: 44px;
+}
+
+#select-num {
+    float: left;
+    width: 120px;
+}
+
+#product-title {
+    height: 40px;
+}
+
+#buy-wrap {
+    padding: 0 20px;
+}
+
+#select-num .ui-btn {
+    margin-top: 5px;
 }

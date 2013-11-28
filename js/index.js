@@ -1,7 +1,8 @@
-var DEBUG = false,
-    BASE_URL = 'http://14.20.192.228/';
-
 var app = {
+
+    DEBUG: false,
+    BASE_URL: 'http://14.20.192.228/',
+
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -41,13 +42,12 @@ var app = {
             scanResult = '';
 
         scanner.scan( function (result) { 
+            // result = {text: 'xxx', format: 'xxx', cancelled: 'xxx'}
 
-            if(DEBUG){
-                scanResult =    'Barcode: ' + result.text + '<br/>' + 
-                                'Format: ' + result.format  + '<br/>' + 
-                                'Cancelled: ' + result.cancelled;
+            if(app.DEBUG){
+                alert('content: ' + result.text + ', type: ' + typeof result.text + ', length: ' + result.text.length);
             }
-            alert('content: ' + result.text + ', type: ' + typeof result.text + ', length: ' + result.text.length);
+
             app.showProduct(result.text);
 
         }, function (error) { 
@@ -58,9 +58,15 @@ var app = {
     },
 
     showProduct: function(barcode){
+
+        if(barcode.length == 0){
+            // 没有扫描条形码
+            return;
+        }
+
         $.ajax({
             type: 'GET',
-            url: BASE_URL + 'index.php/ajax/product_list',
+            url: app.BASE_URL + 'index.php/ajax/product_list',
             contentType: 'application/json; charset=utf-8',
             dataType: 'jsonp',
             jsonp: 'callback',
@@ -91,7 +97,7 @@ var app = {
             
             $.ajax({
                 type: 'GET',
-                url: BASE_URL + 'index.php/ajax/sale_add',
+                url: app.BASE_URL + 'index.php/ajax/sale_add',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'jsonp',
                 jsonp: 'callback',
