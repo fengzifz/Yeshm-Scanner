@@ -37,7 +37,7 @@ body {
     );
     background-attachment:fixed;
     font-family:'Microsoft Yahei', 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:20px;
+    font-size:62.5%;
     height:100%;
     margin:0px;
     padding:0px;
@@ -61,7 +61,7 @@ body {
 }
 
 h1 {
-    font-size:30px;
+    font-size:3em;
     font-weight:bold;
     margin:0px;
     overflow:visible;
@@ -73,7 +73,7 @@ h1 {
     border-radius:4px;
     -webkit-border-radius:4px;
     color:#FFFFFF;
-    font-size:12px;
+    font-size:1.2em;
     margin:0px 30px;
     padding:2px 0px;
 }
@@ -138,6 +138,9 @@ h1 {
     text-align: right;
     float: left;
     margin-right: 25px;
+}
+
+.row > span {
     line-height: 55px;
 }
 
@@ -151,8 +154,12 @@ h1 {
     line-height: 40px;
 }
 
+.title-h1 {
+    font-size: 2.5em !important;
+}
+
 #footer {
-    height: 44px;
+    height: 4em;
 }
 
 #select-num {
@@ -160,8 +167,14 @@ h1 {
     width: 120px;
 }
 
+#select-num .ui-select {
+    line-height: 1em;
+}
+
 #product-title {
     height: 40px;
+    -webkit-border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;
 }
 
 #buy-wrap {
@@ -170,4 +183,8 @@ h1 {
 
 #select-num .ui-btn {
     margin-top: 5px;
+}
+
+#page-title {
+    height: 4em;
 }

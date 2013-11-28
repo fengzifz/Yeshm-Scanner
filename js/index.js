@@ -38,8 +38,7 @@ var app = {
 
     scan: function() {
         
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner"),
-            scanResult = '';
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.scan( function (result) { 
             // result = {text: 'xxx', format: 'xxx', cancelled: 'xxx'}
