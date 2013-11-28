@@ -1,7 +1,7 @@
-var app = {
+var DEBUG = false,
+    BASE_URL = 'http://14.20.192.228/';
 
-    DEBUG: false,
-    BASE_URL: 'http://14.20.192.228/',
+var app = {
 
     // Application Constructor
     initialize: function() {
@@ -44,7 +44,7 @@ var app = {
         scanner.scan( function (result) { 
             // result = {text: 'xxx', format: 'xxx', cancelled: 'xxx'}
 
-            if(app.DEBUG){
+            if(DEBUG){
                 alert('content: ' + result.text + ', type: ' + typeof result.text + ', length: ' + result.text.length);
             }
 
@@ -66,7 +66,7 @@ var app = {
 
         $.ajax({
             type: 'GET',
-            url: app.BASE_URL + 'index.php/ajax/product_list',
+            url: BASE_URL + 'index.php/ajax/product_list',
             contentType: 'application/json; charset=utf-8',
             dataType: 'jsonp',
             jsonp: 'callback',
@@ -97,7 +97,7 @@ var app = {
             
             $.ajax({
                 type: 'GET',
-                url: app.BASE_URL + 'index.php/ajax/sale_add',
+                url: BASE_URL + 'index.php/ajax/sale_add',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'jsonp',
                 jsonp: 'callback',
