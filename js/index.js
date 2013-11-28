@@ -102,12 +102,33 @@ var app = {
                 jsonpCallback: 'success',
                 data: {'num':datas.num, 'pid':datas.pid},
                 success: function(data){
+                    var barcode = $('#pro-barcode').text();
+                    app.updateQty(barcode);
                     alert(data);
                 },
                 error: function(err){
                     alert('buy error');
                 }
             });
+        });
+    },
+
+    updateQty: function(barcode){
+        $.ajax({
+            type: 'GET',
+            url: BASE_URL + 'index.php/ajax/product_list',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            jsonpCallback: 'success',
+            data: {'barcode': barcode},
+            success: function(data){
+                var info = data[0];
+                document.getElementById('pro-barcode').innerHTML = info['barcode'];
+            },
+            error: function(){
+                alert('update error');
+            }
         });
     }
 };
