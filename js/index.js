@@ -1,5 +1,5 @@
 var DEBUG = false,
-    BASE_URL = 'http://14.20.195.242/';
+    BASE_URL = 'http://14.20.192.228/';
 
 var app = {
     // Application Constructor
@@ -47,6 +47,7 @@ var app = {
                                 'Format: ' + result.format  + '<br/>' + 
                                 'Cancelled: ' + result.cancelled;
             }
+            alert('content: ' + result.text + ', type: ' + typeof result.text + ', length: ' + result.text.length);
             app.showProduct(result.text);
 
         }, function (error) { 
