@@ -5,6 +5,12 @@
  * @version $Id$
  */
 
-$(document).on('pageinit', function(e){
-	
+$(document).ready(function(){
+	$('ul.dropdown-menu li').each(function(){
+		$(this).click(function(){
+			var value = $(this).text();
+			$('#amount').text(value);
+			$('#pro-num').val(value);
+		});
+	});
 });

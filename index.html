@@ -16,27 +16,37 @@
         <div class="app">
             
             <!-- product info start -->
-            <div id="product-info" style="display:block">
+            <div id="product-info">
                 <div class="row" id="product-title"><h2 class="text-center">产品信息</h2></div>
                 <div class="row">
-                    <div class="col-xs-3 text-right">产品名:</div> 
-                    <div id="pro-name" class="col-xs-9"></div>
+                    <div class="col-xs-3 text-right p-l">产品名:</div> 
+                    <div id="pro-name" class="col-xs-9 p-d">雀巢咖啡丝滑拿铁</div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3 text-right">条形码:</div> 
-                    <div id="pro-barcode" class="col-xs-9"></div>
+                    <div class="col-xs-3 text-right p-l">条形码:</div> 
+                    <div id="pro-barcode" class="col-xs-9 p-d"></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3 text-right">价格:</div> 
-                    <div id="pro-price" class="col-xs-9"></div>
+                    <div class="col-xs-3 text-right p-l">价格:</div> 
+                    <div id="pro-price" class="col-xs-9 p-d"></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3 text-right">库存:</div> 
-                    <div id="pro-amount" class="col-xs-9"></div>
+                    <div class="col-xs-3 text-right p-l">库存:</div> 
+                    <div id="pro-amount" class="col-xs-9 p-d"></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3 text-right">购买数量:</div> 
-                    <div id="select-num" class="col-xs-9">
+                    <div class="col-xs-3 text-right p-l">购买数量:</div> 
+                    <div id="select-num" class="col-xs-9 p-d">
+                        <button id="amount" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            1
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
                         <select id="pro-num" name="num">
                             <option>1</option>
                             <option>2</option>
@@ -48,12 +58,14 @@
                 </div>
                 <div id="buy-wrap" class="row">
                     <input id="pro-pid" name="pid" type="hidden" value />
-                    <input id="buy" type="submit" value="购买" />
+                    <button id="buy" type="submit" class="btn btn-primary btn-lg">立即购买</button>
                 </div>
             </div>
             <!-- product info end -->
 
-            <div><a href="#" class="topcoat-button" id="scan"> </a></div>
+            <div id="scan-btn">
+                <a href="#" class="topcoat-button" id="scan"> </a>
+            </div>
             <div id="scan-error" class="row"></div>
 
         </div>
