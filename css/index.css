@@ -38,12 +38,12 @@ footer,
     border-radius: 10px 10px 0 0;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 768px){
+/*@media screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 768px){
 
     header,
     footer, 
     #product-title {
-        padding: 30px 0;
+        padding: 20px 0;
     }
 
     h1,
@@ -52,7 +52,26 @@ footer,
     h4,
     h5,
     h6 {
-        font-size: 54px;
+        font-size: 45px;
+    }
+}*/
+
+@media screen and (-webkit-min-device-pixel-ratio: 3/2) and (min-device-width: 700px){
+
+    header,
+    footer, 
+    #product-title {
+        padding: 15px 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 45px;
+        color: blue;
     }
 }
 
