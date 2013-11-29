@@ -1,5 +1,11 @@
 var DEBUG = false,
-    BASE_URL = 'http://14.20.209.232/';
+    BASE_URL = 'http://14.20.209.232/index.php/ajax/',
+    CONTENT_TYPE = 'application/json; charset=utf-8',
+    JSONP = 'callback',
+    DATA_TYPE = 'jsonp',
+    JSONP_CALLBACK = 'success',
+    TYPE_GET = 'GET';
+
 
 var app = {
 
@@ -63,12 +69,12 @@ var app = {
     showProduct: function(barcode){
 
         $.ajax({
-            type: 'GET',
-            url: BASE_URL + 'index.php/ajax/product_list',
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'jsonp',
-            jsonp: 'callback',
-            jsonpCallback: 'success',
+            type: TYPE_GET,
+            url: BASE_URL + 'product_list',
+            contentType: CONTENT_TYPE,
+            dataType: DATA_TYPE,
+            jsonp: JSONP,
+            jsonpCallback: JSONP_CALLBACK,
             data: {'barcode': barcode},
             success: function(data){
                 var info = data[0];
@@ -94,17 +100,31 @@ var app = {
             e.preventDefault();
             
             $.ajax({
-                type: 'GET',
-                url: BASE_URL + 'index.php/ajax/sale_add',
-                contentType: 'application/json; charset=utf-8',
-                dataType: 'jsonp',
-                jsonp: 'callback',
-                jsonpCallback: 'success',
+                type: TYPE_GET,
+                url: BASE_URL + 'sale_add',
+                contentType: CONTENT_TYPE,
+                dataType: DATA_TYPE,
+                jsonp: JSONP,
+                jsonpCallback: JSONP_CALLBACK,
                 data: {'num':datas.num, 'pid':datas.pid},
                 success: function(data){
-                    var barcode = $('#pro-barcode').text();
+                    var barcode = $('#pro-barcode').text(),
+                        status,
+                        theClass = 'alert';
+
+                    if(data == 1){
+                        status = '购买成功';
+                        theClass += ' alert-success';
+                    } else if(data == 2){
+                        status = '库存不足';
+                        theClass += ' alert-warning';
+                    } else if(data == 3){
+                        status = '发生错误';
+                        theClass += ' alert-danger';
+                    }
+
+                    setStatus(theClass, status);
                     app.updateQty(barcode);
-                    setStatus('alert alert-success', data);
                 },
                 error: function(err){
                     setStatus('alert alert-danger', 'Ajax Error: buy.');
@@ -115,12 +135,12 @@ var app = {
 
     updateQty: function(barcode){
         $.ajax({
-            type: 'GET',
-            url: BASE_URL + 'index.php/ajax/product_list',
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'jsonp',
-            jsonp: 'callback',
-            jsonpCallback: 'success',
+            type: TYPE_GET,
+            url: BASE_URL + 'product_list',
+            contentType: CONTENT_TYPE,
+            dataType: DATA_TYPE,
+            jsonp: JSONP,
+            jsonpCallback: JSONP_CALLBACK,
             data: {'barcode': barcode},
             success: function(data){
                 var info = data[0];
