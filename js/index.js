@@ -172,6 +172,21 @@ var app = {
     }
 };
 
+var login = {
+    initialize: function(){
+        login.login();
+    },
+
+    login: function(){
+        $('#login').click(function(e){
+            e.preventDefault();
+            $('.login-wrapper').hide();
+            $('body').addClass('result').removeClass('login');
+            $('div.result').show();
+        });
+    }
+};
+
 function setStatus(theClass, theText){
     var status = document.getElementById('buying-status');
     status.className = theClass;

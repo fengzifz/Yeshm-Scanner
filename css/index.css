@@ -16,9 +16,13 @@ body.result {
 }
 
 /* 暂时隐藏 */
-/*body.scan {
+body.login {
     background-color: #252525;
-}*/
+}
+
+div.result {
+    display: none;
+}
 
 .app {
     padding: 0 30px;
@@ -124,6 +128,7 @@ ul.dropdown-menu li:nth-child(even){
     font-size: 30px;
 }
 
+/* ==== loading ==== */
 #loading-wrapper {
     display: none;
 }
@@ -167,10 +172,27 @@ ul.dropdown-menu li:nth-child(even){
     z-index: 2000;
 }
 
-/* 暂时隐藏 */
-/*.result {
-    display: none;
-}*/
+/* ==== login ==== */
+.login-wrapper {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.login {
+    position: absolute;
+    bottom: 50%;
+    width: 100%;
+}
+
+.login .row {
+    padding: 0 30px;
+    margin-bottom: 30px;
+}
+
+.login .row:last-child {
+    margin-bottom: 0;
+}
 
 /* 高dpi设备 */
 @media screen and (-webkit-min-device-pixel-ratio: 1.5) {

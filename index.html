@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
     </head>
-    <body class="result">
+    <body class="login">
 
         <!-- loading start -->
         <div id="loading-wrapper">
@@ -22,12 +22,17 @@
         <!-- loading end -->
 
         <!-- login start -->
-        <div class="login" style="display:none;">
-            <div class="row">
-                <input id="username" type="text" name="username" />
-            </div>
-            <div class="row">
-                <input id="password" type="text" name="password" />
+        <div class="login-wrapper">
+            <div class="login">
+                <div class="row input-group-lg">
+                    <input id="username" type="text" name="username" class="col-xs-12 form-control" placeholder="用户名" />
+                </div>
+                <div class="row input-group-lg">
+                    <input id="password" type="text" name="password" class="col-xs-12 form-control" placeholder="密码" />
+                </div>
+                <div class="row">
+                    <button id="login" class="btn btn-primary btn-lg btn-block">登陆</button>
+                </div>
             </div>
         </div>
         <!-- login end -->
@@ -35,7 +40,6 @@
         <!-- 扫描 Start -->
         <div class="scan" style="display:none;">
             <a id="logo"></a>
-            <!-- <a href="#" class="topcoat-button" id="scan"> </a> -->
         </div>
         <!-- 扫描 End -->
 
@@ -45,77 +49,70 @@
                 <h1 class="text-center">Yeshm Scanner</h1>
             </header>
 
-            <!-- 没有结果 Start -->
-            <div class="result-none" style="display:none;">
-                <div class="result-none-text"></div>
-                <!-- <a href="#" class="topcoat-button" id="scan"> </a> -->
-            </div>
-            <!-- 没有结果 End -->
-
             <!-- 返回结果 Start -->
-            <div class="result-show">
-                <div class="app">
-                
-                    <!-- product info start -->
-                    <div id="product-info">
+            <div class="app">
 
-                        <div class="row" id="product-title">
-                            <h2 class="text-center">产品信息</h2>
-                        </div>
+                <div id="product-none"></div>
+            
+                <!-- product info start -->
+                <div id="product-info">
 
-                        <div class="row">
-                            <div class="col-xs-3 text-right p-l">产品名:</div> 
-                            <div id="pro-name" class="col-xs-9 p-d"></div>
-                        </div>
+                    <div class="row" id="product-title">
+                        <h2 class="text-center">产品信息</h2>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-xs-3 text-right p-l">条形码:</div> 
-                            <div id="pro-barcode" class="col-xs-9 p-d"></div>
-                        </div>
+                    <div class="row">
+                        <div class="col-xs-3 text-right p-l">产品名:</div> 
+                        <div id="pro-name" class="col-xs-9 p-d"></div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-xs-3 text-right p-l">价格:</div> 
-                            <div id="pro-price" class="col-xs-9 p-d"></div>
-                        </div>
+                    <div class="row">
+                        <div class="col-xs-3 text-right p-l">条形码:</div> 
+                        <div id="pro-barcode" class="col-xs-9 p-d"></div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-xs-3 text-right p-l">库存:</div> 
-                            <div id="pro-amount" class="col-xs-9 p-d"></div>
-                        </div>
+                    <div class="row">
+                        <div class="col-xs-3 text-right p-l">价格:</div> 
+                        <div id="pro-price" class="col-xs-9 p-d"></div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-xs-3 text-right p-l">购买数量:</div> 
-                            <div id="select-num" class="col-xs-9 p-d">
-                                <button id="amount" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">1</button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>1</li>
-                                    <li>2</li>
-                                    <li>3</li>
-                                    <li>4</li>
-                                    <li>5</li>
-                                </ul>
-                                <select id="pro-num" name="num">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>
+                    <div class="row">
+                        <div class="col-xs-3 text-right p-l">库存:</div> 
+                        <div id="pro-amount" class="col-xs-9 p-d"></div>
+                    </div>
 
-                        <div class="row" id="buy-wrap">
-                            <input id="pro-pid" name="pid" type="hidden" value />
-                            <button id="buy" type="submit" class="btn btn-primary btn-lg">立即购买</button>
+                    <div class="row">
+                        <div class="col-xs-3 text-right p-l">购买数量:</div> 
+                        <div id="select-num" class="col-xs-9 p-d">
+                            <button id="amount" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">1</button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                            </ul>
+                            <select id="pro-num" name="num">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
                         </div>
                     </div>
-                    <!-- product info end -->
 
-                    <!-- Status Start -->
-                    <div id="buying-status"></div>
-                    <!-- Status End -->
-
+                    <div class="row" id="buy-wrap">
+                        <input id="pro-pid" name="pid" type="hidden" value />
+                        <button id="buy" type="submit" class="btn btn-primary btn-lg">立即购买</button>
+                    </div>
                 </div>
+                <!-- product info end -->
+
+                <!-- Status Start -->
+                <div id="buying-status"></div>
+                <!-- Status End -->
+
             </div>
             <!-- 返回结果 End -->
 
@@ -133,6 +130,7 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+            login.initialize();
         </script>
     </body>
 </html>
