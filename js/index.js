@@ -42,7 +42,7 @@ var app = {
 
     scan: function() {
         
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+        var scanner = cordova.require('cordova/plugin/BarcodeScanner');
 
         scanner.scan( function (result) { 
             // result = {text: 'xxx', format: 'xxx', cancelled: 'xxx'}
@@ -51,6 +51,8 @@ var app = {
             if(!result.cancelled){
                 showOrHide('block');
             }
+
+            document.getElementById('buying-status').style.display = 'none';
 
             if(result.text.length == 0){
                 setStatus('alert alert-info', '没有结果，请重新扫描');
@@ -185,6 +187,7 @@ var login = {
 
 function setStatus(theClass, theText){
     var status = document.getElementById('buying-status');
+    status.style.display = 'block';
     status.className = theClass;
     status.innerHTML = theText;
 }

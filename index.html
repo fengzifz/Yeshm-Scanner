@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
     </head>
-    <body class="login">
+    <body class="result">
 
         <!-- loading start -->
         <div id="loading-wrapper">
@@ -22,7 +22,7 @@
         <!-- loading end -->
 
         <!-- login start -->
-        <div class="login-wrapper">
+        <div class="login-wrapper" style="display:none;">
             <div class="login">
                 <div class="row input-group-lg">
                     <input id="username" type="text" name="username" class="col-xs-12 form-control" placeholder="用户名" />
@@ -44,7 +44,7 @@
         <!-- 扫描 End -->
 
         <!-- 结果 Start -->
-        <div class="result">
+        <div class="result" style="display:block;">
             <header>
                 <h1 class="text-center">Yeshm Scanner</h1>
             </header>
@@ -117,7 +117,11 @@
             <!-- 返回结果 End -->
 
             <footer class="navbar-fixed-bottom">
-                <a href="#" class="topcoat-button" id="scan"> </a>
+                <a href="#" class="topcoat-button modern embossed-link" id="scan">
+                    <span class="glyphicon glyphicon-barcode icon"></span>
+                    <span class="glyphicon glyphicon-barcode icon blur"></span>
+                    <span>SCAN</span>
+                </a>
             </footer>
         </div>
         <!-- 结果 End -->

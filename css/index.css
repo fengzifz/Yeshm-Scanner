@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+* {
+    transition: color 0.3s ease-out 0s;
+}
+
 body.result {
     background-color:#E4E4E4;
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -57,6 +61,12 @@ header,
     padding: 10px 0;
 }
 
+footer {
+    background: #2d2c2d;
+    /*background-image: linear-gradient(#636363,#000);*/
+    border-top: 1px solid #575657;
+}
+
 header {
     margin-bottom: 30px;
 }
@@ -106,7 +116,42 @@ footer {
     width: 100%;
     height: 208px;
     display: block;
-    background: url(../img/icon-scan-350.png) no-repeat center top;
+    /*background: url(../img/icon-scan-350.png) no-repeat center top;*/
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    background: #dbdbdb;
+    background-image:  -webkit-radial-gradient(circle, #fff, #797979 70%);
+}
+
+.topcoat-button:hover {
+    text-decoration: none;
+}
+
+.topcoat-button span {
+    display: block;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.topcoat-button .icon {
+    font-size: 50px;
+    padding: 30px 0 10px;
+    width: 150px;
+}
+
+.topcoat-button .blur {
+    -webkit-filter: blur(6px);
+    position: absolute;
+}
+
+.modern.embossed-link {
+    -webkit-box-shadow: inset 0 4px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0,0,0,0.3), 0 0 4px 1px rgba(0,0,0,0.2), inset 0 3px 2px rgba(255,255,255,.22), inset 0 -3px 2px rgba(0,0,0,.15), inset 0 20px 10px rgba(255,255,255,.12), 0 0 4px 1px rgba(0,0,0,.1), 0 3px 2px rgba(0,0,0,.2);
+}
+
+.embossed-link {
+    -webkit-box-shadow: inset 0 3px 2px rgba(255,255,255,.22), inset 0 -3px 2px rgba(0,0,0,.17), inset 0 20px 10px rgba(255,255,255,.12), 0 0 4px 1px rgba(0,0,0,.1), 0 3px 2px rgba(0,0,0,.2);
 }
 
 ul.dropdown-menu {
