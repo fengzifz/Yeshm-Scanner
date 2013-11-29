@@ -103,7 +103,6 @@ var app = {
                 data: {'num':datas.num, 'pid':datas.pid},
                 success: function(data){
                     var barcode = $('#pro-barcode').text();
-                    alert(barcode);
                     app.updateQty(barcode);
                     alert(data);
                 },
@@ -125,7 +124,7 @@ var app = {
             data: {'barcode': barcode},
             success: function(data){
                 var info = data[0];
-                document.getElementById('pro-barcode').innerHTML = info['barcode'];
+                document.getElementById('pro-amount').innerHTML = info['amount'];
             },
             error: function(){
                 alert('update error');
