@@ -26,7 +26,6 @@ body.result {
 
 #product-info {
     display: none;
-    margin-top: 20px;
     width: 100%;
     margin: 30px auto;
     -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.5);
@@ -52,6 +51,10 @@ header,
     background: #111;
     background-image: linear-gradient(#3c3c3c,#111);
     padding: 10px 0;
+}
+
+header {
+    margin-bottom: 30px;
 }
 
 footer {
@@ -120,6 +123,49 @@ ul.dropdown-menu li:nth-child(even){
     font-size: 30px;
 }
 
+#loading-wrapper {
+    display: none;
+}
+
+#loading-text {
+    background: url(../img/ajax-loader.gif) no-repeat center top;
+    padding-top: 65px;
+    margin-top: 45px;
+    width: 100%;
+    opacity: 0.7;
+    text-align: center;
+    color: #000;
+}
+
+#loading {
+    width: 300px;
+    height: 200px;
+    background: transparent;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+#loading-inner {
+    width: 300px;
+    height: 200px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    z-index: 2001;
+}
+
+#mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2000;
+}
+
 /* 暂时隐藏 */
 /*.result {
     display: none;
@@ -132,6 +178,10 @@ ul.dropdown-menu li:nth-child(even){
     footer, 
     #product-title {
         padding: 18px 0;
+    }
+
+    header {
+        margin-bottom: 38px;
     }
 
     footer {

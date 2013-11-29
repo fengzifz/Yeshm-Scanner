@@ -53,7 +53,7 @@ var app = {
             }
 
             if(result.text.length == 0){
-                setStatus('alert alert-warning', '没有结果，请重新扫描');
+                setStatus('alert alert-info', '没有结果，请重新扫描');
             } else {
                 app.showProduct(result.text);
             }
@@ -75,7 +75,13 @@ var app = {
             jsonp: JSONP,
             jsonpCallback: JSONP_CALLBACK,
             data: {'barcode': barcode},
+            beforeSend: function(){
+                showOrHide('block');
+            },
             success: function(data){
+
+                showOrHide('none');
+
                 if(data == 0){
                     alert('wao~ 没有该产品，请到楼下seven eleven购买');
                 } else {
@@ -110,6 +116,9 @@ var app = {
                 jsonp: JSONP,
                 jsonpCallback: JSONP_CALLBACK,
                 data: {'num':datas.num, 'pid':datas.pid},
+                beforeSend: function(){
+                    showOrHide('block');
+                },
                 success: function(data){
                     var barcode = $('#pro-barcode').text(),
                         status,
@@ -120,7 +129,7 @@ var app = {
                         theClass += ' alert-success';
                     } else if(data == 2){
                         status = '库存不足';
-                        theClass += ' alert-warning';
+                        theClass += ' alert-info';
                     } else if(data == 3){
                         status = '发生错误';
                         theClass += ' alert-danger';
@@ -130,6 +139,7 @@ var app = {
                         alert('return: ' + data + ', status: ' + status + ', theClass: ' + theClass);
                     }
 
+                    showOrHide('none');
                     setStatus(theClass, status);
                     app.updateQty(barcode);
                 },
@@ -149,9 +159,13 @@ var app = {
             jsonp: JSONP,
             jsonpCallback: JSONP_CALLBACK,
             data: {'barcode': barcode},
+            beforeSend: function(){
+                showOrHide('block');
+            },
             success: function(data){
                 var info = data[0];
                 document.getElementById('pro-amount').innerHTML = info['amount'];
+                showOrHide('none');
             },
             error: function(){
                 setStatus('alert alert-danger', 'Ajax Error: update.');
@@ -164,4 +178,8 @@ function setStatus(theClass, theText){
     var status = document.getElementById('buying-status');
     status.className = theClass;
     status.innerHTML = theText;
+}
+
+function showOrHide(val){
+    document.getElementById('loading-wrapper').style.display = val;
 }
