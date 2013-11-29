@@ -251,4 +251,10 @@ ul.dropdown-menu li:nth-child(even){
         background: url(../img/icon-scan-500.png) no-repeat center top;
         height: 302px;
     }
+
+    #username,
+    #password {
+        padding: 40px 16px;
+        font-size: 30px;
+    }
 }
