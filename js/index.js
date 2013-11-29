@@ -80,7 +80,7 @@ var app = {
                 document.getElementById('pro-pid').setAttribute('value', info['id']);
             },
             error: function(err){
-                alert('query error');
+                setStatus('alert alert-danger', 'Ajax Error: query.');
             }
         });
     },
@@ -104,10 +104,10 @@ var app = {
                 success: function(data){
                     var barcode = $('#pro-barcode').text();
                     app.updateQty(barcode);
-                    alert(data);
+                    setStatus('alert alert-success', data);
                 },
                 error: function(err){
-                    alert('buy error');
+                    setStatus('alert alert-danger', 'Ajax Error: buy.');
                 }
             });
         });
@@ -127,8 +127,14 @@ var app = {
                 document.getElementById('pro-amount').innerHTML = info['amount'];
             },
             error: function(){
-                alert('update error');
+                setStatus('alert alert-danger', 'Ajax Error: update.');
             }
         });
     }
 };
+
+function setStatus(theClass, theText){
+    var status = document.getElementById('buying-status');
+    status.className = theClass;
+    status.innerHTML = theText;
+}

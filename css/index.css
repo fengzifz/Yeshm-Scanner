@@ -33,6 +33,7 @@ body.result {
     box-shadow: 0 1px 5px rgba(0,0,0,.5);
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
+    background: #fff;
 }
 
 h1,
@@ -46,7 +47,7 @@ h6 {
 }
 
 header,
-footer,
+/*footer,*/
 #product-title {
     background: #111;
     background-image: linear-gradient(#3c3c3c,#111);
@@ -90,14 +91,28 @@ footer {
 }
 
 #select-num button {
-    width: 55px;
+    width: 82px;
 }
 
 .topcoat-button {
     width: 100%;
-    height: 191px;
+    height: 208px;
     display: block;
-    background: url(../img/icon-scan.png) no-repeat center top;
+    background: url(../img/icon-scan-350.png) no-repeat center top;
+}
+
+ul.dropdown-menu {
+    min-width: 83px;
+    margin-left: 14px;
+}
+
+ul.dropdown-menu li {
+    text-align: center;
+    padding: 0 20px;
+}
+
+ul.dropdown-menu li:nth-child(even){
+    background: rgba(0, 0, 0, 0.04);
 }
 
 /* 暂时隐藏 */
@@ -105,7 +120,7 @@ footer {
     display: none;
 }*/
 
-/* 高像素设备 */
+/* 高dpi设备 */
 @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
 
     header,
@@ -127,6 +142,14 @@ footer {
         font-size: 45px;
     }
 
+    #product-title {
+        padding: 15 0;
+    }
+
+    #product-title h2 {
+        font-size: 40px;
+    }
+
     .p-l,
     .p-d {
         font-size: 30px;
@@ -143,5 +166,10 @@ footer {
 
     #select-num button {
         font-size: 18px;
+    }
+
+    .topcoat-button {
+        background: url(../img/icon-scan-500.png) no-repeat center top;
+        height: 302px;
     }
 }
