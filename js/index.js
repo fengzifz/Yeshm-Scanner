@@ -123,6 +123,8 @@ var app = {
                         theClass += ' alert-danger';
                     }
 
+                    alert('return: ' + data + ', status: ' + status + ', theClass: ' + theClass);
+
                     setStatus(theClass, status);
                     app.updateQty(barcode);
                 },
