@@ -115,6 +115,11 @@ ul.dropdown-menu li:nth-child(even){
     background: rgba(0, 0, 0, 0.04);
 }
 
+#buying-status {
+    text-align: center;
+    font-size: 30px;
+}
+
 /* 暂时隐藏 */
 /*.result {
     display: none;
@@ -143,11 +148,12 @@ ul.dropdown-menu li:nth-child(even){
     }
 
     #product-title {
-        padding: 15 0;
+        padding: 15px 0;
     }
 
+    #buying-status,
     #product-title h2 {
-        font-size: 40px;
+        font-size: 36px;
     }
 
     .p-l,

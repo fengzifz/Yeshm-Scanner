@@ -6,7 +6,6 @@ var DEBUG = false,
     JSONP_CALLBACK = 'success',
     TYPE_GET = 'GET';
 
-
 var app = {
 
     // Application Constructor
@@ -54,7 +53,7 @@ var app = {
             }
 
             if(result.text.length == 0){
-                alert('没有扫描结果');
+                setStatus('alert alert-warning', '没有结果，请重新扫描');
             } else {
                 app.showProduct(result.text);
             }
@@ -77,13 +76,17 @@ var app = {
             jsonpCallback: JSONP_CALLBACK,
             data: {'barcode': barcode},
             success: function(data){
-                var info = data[0];
-                document.getElementById('product-info').style.display = 'block';
-                document.getElementById('pro-name').innerHTML = info['name'];
-                document.getElementById('pro-price').innerHTML = info['price'];
-                document.getElementById('pro-amount').innerHTML = info['amount'];
-                document.getElementById('pro-barcode').innerHTML = info['barcode'];
-                document.getElementById('pro-pid').setAttribute('value', info['id']);
+                if(data == 0){
+                    alert('wao~ 没有该产品，请到楼下seven eleven购买');
+                } else {
+                    var info = data[0];
+                    document.getElementById('product-info').style.display = 'block';
+                    document.getElementById('pro-name').innerHTML = info['name'];
+                    document.getElementById('pro-price').innerHTML = info['price'];
+                    document.getElementById('pro-amount').innerHTML = info['amount'];
+                    document.getElementById('pro-barcode').innerHTML = info['barcode'];
+                    document.getElementById('pro-pid').setAttribute('value', info['id']);
+                }
             },
             error: function(err){
                 setStatus('alert alert-danger', 'Ajax Error: query.');
@@ -123,7 +126,9 @@ var app = {
                         theClass += ' alert-danger';
                     }
 
-                    alert('return: ' + data + ', status: ' + status + ', theClass: ' + theClass);
+                    if(DEBUG){
+                        alert('return: ' + data + ', status: ' + status + ', theClass: ' + theClass);
+                    }
 
                     setStatus(theClass, status);
                     app.updateQty(barcode);
