@@ -48,6 +48,9 @@ var app = {
         scanner.scan( function (result) { 
             // result = {text: 'xxx', format: 'xxx', cancelled: 'xxx'}
 
+            // loading effect
+            showOrHide('block');
+
             if(DEBUG){
                 alert('content: ' + result.text + ', type: ' + typeof result.text + ', length: ' + result.text.length);
             }
@@ -75,9 +78,6 @@ var app = {
             jsonp: JSONP,
             jsonpCallback: JSONP_CALLBACK,
             data: {'barcode': barcode},
-            beforeSend: function(){
-                showOrHide('block');
-            },
             success: function(data){
 
                 showOrHide('none');
@@ -102,6 +102,10 @@ var app = {
 
     buyProduct: function(){
         $('#buy').click(function(e){
+
+            // loading effect
+            showOrHide('block');
+
             var datas = {};
             datas.num = $('#pro-num').val();
             datas.pid = $('#pro-pid').val();
@@ -116,9 +120,6 @@ var app = {
                 jsonp: JSONP,
                 jsonpCallback: JSONP_CALLBACK,
                 data: {'num':datas.num, 'pid':datas.pid},
-                beforeSend: function(){
-                    showOrHide('block');
-                },
                 success: function(data){
                     var barcode = $('#pro-barcode').text(),
                         status,
@@ -159,9 +160,6 @@ var app = {
             jsonp: JSONP,
             jsonpCallback: JSONP_CALLBACK,
             data: {'barcode': barcode},
-            beforeSend: function(){
-                showOrHide('block');
-            },
             success: function(data){
                 var info = data[0];
                 document.getElementById('pro-amount').innerHTML = info['amount'];

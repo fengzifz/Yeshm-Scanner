@@ -91,6 +91,7 @@ footer {
 
 #buy {
     width: 100%;
+    font-size: 25px;
 }
 
 #select-num button {
@@ -217,7 +218,7 @@ ul.dropdown-menu li:nth-child(even){
     }
 
     #buy {
-        font-size: 23px;
+        font-size: 32px;
     }
 
     #select-num button {
