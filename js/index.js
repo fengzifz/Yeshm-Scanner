@@ -1,5 +1,4 @@
-var DEBUG = false,
-    BASE_URL = 'http://14.20.209.232/index.php/ajax/',
+var BASE_URL = 'http://14.20.209.232/index.php/ajax/',
     CONTENT_TYPE = 'application/json; charset=utf-8',
     JSONP = 'callback',
     DATA_TYPE = 'jsonp',
@@ -49,12 +48,8 @@ var app = {
             // result = {text: 'xxx', format: 'xxx', cancelled: 'xxx'}
 
             // loading effect
-            if(result.cancelled){
+            if(!result.cancelled){
                 showOrHide('block');
-            }
-
-            if(DEBUG){
-                alert('content: ' + result.text + ', type: ' + typeof result.text + ', length: ' + result.text.length);
             }
 
             if(result.text.length == 0){
@@ -71,7 +66,6 @@ var app = {
     },
 
     showProduct: function(barcode){
-
         $.ajax({
             type: TYPE_GET,
             url: BASE_URL + 'product_list',
