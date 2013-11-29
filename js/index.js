@@ -1,5 +1,5 @@
 var DEBUG = false,
-    BASE_URL = 'http://14.20.192.228/';
+    BASE_URL = 'http://14.20.209.232/';
 
 var app = {
 
