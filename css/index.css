@@ -260,5 +260,6 @@ ul.dropdown-menu li:nth-child(even){
 
     button#login {
         font-size: 30px;
+        padding: 15px 0;
     }
 }

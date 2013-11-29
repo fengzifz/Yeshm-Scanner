@@ -49,7 +49,9 @@ var app = {
             // result = {text: 'xxx', format: 'xxx', cancelled: 'xxx'}
 
             // loading effect
-            showOrHide('block');
+            if(result.cancelled){
+                showOrHide('block');
+            }
 
             if(DEBUG){
                 alert('content: ' + result.text + ', type: ' + typeof result.text + ', length: ' + result.text.length);
@@ -83,7 +85,7 @@ var app = {
                 showOrHide('none');
 
                 if(data == 0){
-                    alert('wao~ 没有该产品，请到楼下seven eleven购买');
+                    setStatus('alert alert-info', 'wao~ 没有该产品，请到楼下seven eleven购买');
                 } else {
                     var info = data[0];
                     document.getElementById('product-info').style.display = 'block';
