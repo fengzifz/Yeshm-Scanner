@@ -57,7 +57,7 @@ header,
 /*footer,*/
 #product-title {
     background: #111;
-    background-image: linear-gradient(#3c3c3c,#111);
+    background-image: linear-gradient(#3c3c3c,#2d2d2d);
     padding: 10px 0;
 }
 
@@ -72,7 +72,7 @@ header {
 }
 
 footer {
-    min-height: 85px;
+    min-height: 110px;
 }
 
 #product-title {
@@ -112,43 +112,65 @@ footer {
     width: 82px;
 }
 
-.topcoat-button {
-    width: 100%;
-    height: 208px;
-    display: block;
-    /*background: url(../img/icon-scan-350.png) no-repeat center top;*/
-    width: 150px;
-    height: 150px;
-    border-radius: 100px;
-    background: #dbdbdb;
-    background-image:  -webkit-radial-gradient(circle, #fff, #797979 70%);
+
+/* ==== Scan button ==== */
+.scan-button,
+.button-bg,
+.button-bg-2 {
     position: absolute;
-    bottom: 10px;
     left: 50%;
-    margin-left: -75px;
-    border: 2px solid #2d2c2d;
+    bottom: 0;
+}
+
+.scan-button a,
+.button-bg div,
+.button-bg-2 div {
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+}
+
+.scan-button {
+    width: 160px;
+    height: 160px;
 }
 
 .button-bg {
-    width: 160px;
-    height: 160px;
-    border-radius: 100px;
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    margin-left: -80px;
-    background: #fff;
+    width: 180px;
+    height: 180px;
 }
 
 .button-bg-2 {
-    width: 170px;
-    height: 170px;
+    width: 220px;
+    height: 220px;
+}
+
+.button-bg div {
+    width: 100%;
+    height: 100%;
     border-radius: 100px;
-    position: absolute;
+    bottom: 20px;
+    background: #fff;
+    -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.6);
+}
+
+.button-bg-2 div {
+    width: 100%;
+    height: 100%;
+    border-radius: 200px;
     bottom: 0;
-    left: 50%;
-    margin-left: -85px;
-    background: #2d2c2d;
+    background: #2d2d2d;
+}
+
+.scan-button .topcoat-button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    background: #dbdbdb;
+    background-image:  -webkit-radial-gradient(circle, #fff, #797979 70%);
+    bottom: 30px;
+    border: 2px solid #2d2d2d;
 }
 
 .topcoat-button:hover {
@@ -160,7 +182,6 @@ footer {
     font-size: 20px;
     width: 100%;
     text-align: center;
-    /*color: #1e1e1e;*/
     font-weight: bold;
 }
 
@@ -342,4 +363,20 @@ ul.dropdown-menu li:nth-child(even){
         font-size: 30px;
         padding: 15px 0;
     }
+
+    .scan-button {
+        width: 200px;
+        height: 200px;
+    }
+
+    .button-bg {
+        width: 225px;
+        height: 225px;
+    }
+
+    .button-bg-2 {
+        width: 275px;
+        height: 275px;
+    }
+
 }
