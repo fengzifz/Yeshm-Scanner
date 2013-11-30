@@ -138,10 +138,6 @@ var app = {
                         theClass += ' alert-danger';
                     }
 
-                    if(DEBUG){
-                        alert('return: ' + data + ', status: ' + status + ', theClass: ' + theClass);
-                    }
-
                     showOrHide('none');
                     setStatus(theClass, status);
                     app.updateQty(barcode);
