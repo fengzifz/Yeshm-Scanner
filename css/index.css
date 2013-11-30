@@ -52,14 +52,13 @@ h6 {
 header,
 /*footer,*/
 #product-title {
-    background: #111;
-    background-image: linear-gradient(#636363,#2d2d2d);
+    background: url(../img/bg-footer.png) repeat left top #393939;
+    /*background-image: linear-gradient(#636363,#2d2d2d);*/
     padding: 10px 0;
 }
 
 footer {
     background: url(../img/bg-footer.png) repeat left top #393939;
-    /*background-image: linear-gradient(#636363,#000);*/
     border-top: 1px solid #575657;
     min-height: 110px;
 }
