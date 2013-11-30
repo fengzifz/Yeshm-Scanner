@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-* {
-    transition: color 0.3s ease-out 0s;
-}
-
 body.result {
     background-color:#E4E4E4;
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -173,6 +169,7 @@ footer {
 
 .topcoat-button:hover {
     text-decoration: none;
+    color: #428bca;
 }
 
 .topcoat-button span {
@@ -383,6 +380,7 @@ ul.dropdown-menu li:nth-child(even){
 
     .topcoat-button .icon {
         font-size: 62px;
+        padding-top: 37px;
     }
 
 }
