@@ -3,7 +3,8 @@ var BASE_URL = 'http://14.20.216.136/index.php/ajax/',
     JSONP = 'callback',
     DATA_TYPE = 'jsonp',
     JSONP_CALLBACK = 'success',
-    TYPE_GET = 'GET';
+    TYPE_GET = 'GET',
+    TIME_OUT = 8000;
 
 var app = {
 
@@ -76,9 +77,8 @@ var app = {
             jsonp: JSONP,
             jsonpCallback: JSONP_CALLBACK,
             data: {'barcode': barcode},
+            timeout: TIME_OUT,
             success: function(data){
-
-                showOrHide('none');
 
                 if(data == 0){
                     setStatus('alert alert-info', 'wao~ 没有该产品，请到楼下seven eleven购买');
@@ -94,6 +94,9 @@ var app = {
             },
             error: function(err){
                 setStatus('alert alert-danger', 'Ajax Error: query.');
+            },
+            complete: function(){
+                showOrHide('none');
             }
         });
     },
@@ -118,6 +121,7 @@ var app = {
                 jsonp: JSONP,
                 jsonpCallback: JSONP_CALLBACK,
                 data: {'num':datas.num, 'pid':datas.pid},
+                timeout: TIME_OUT,
                 success: function(data){
                     var barcode = $('#pro-barcode').text(),
                         status,
@@ -144,6 +148,9 @@ var app = {
                 },
                 error: function(err){
                     setStatus('alert alert-danger', 'Ajax Error: buy.');
+                },
+                complete: function(){
+                    showOrHide('none');
                 }
             });
         });
@@ -158,6 +165,7 @@ var app = {
             jsonp: JSONP,
             jsonpCallback: JSONP_CALLBACK,
             data: {'barcode': barcode},
+            timeout: TIME_OUT,
             success: function(data){
                 var info = data[0];
                 document.getElementById('pro-amount').innerHTML = info['amount'];
@@ -165,6 +173,9 @@ var app = {
             },
             error: function(){
                 setStatus('alert alert-danger', 'Ajax Error: update.');
+            },
+            complete: function(){
+                showOrHide('none');
             }
         });
     }
