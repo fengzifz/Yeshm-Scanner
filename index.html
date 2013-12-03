@@ -51,7 +51,12 @@
         <!-- 结果 Start -->
         <div class="result">
             <header>
-                <span id="left-menu-btn" class="glyphicon glyphicon-align-justify"></span>
+                <div class="dropdown">
+                    <span id="nav" class="glyphicon glyphicon-align-justify btn btn-default dropdown-toggle" data-toggle="dropdown"></span>
+                    <ul id="nav-list" class="dropdown-menu" role="menu">
+                        <li><a id="logout" href="#">退出登录</a></li>
+                    </ul>
+                </div>
                 <h1 class="text-center">Yeshm Scanner</h1>
             </header>
 
@@ -140,28 +145,14 @@
         </div>
         <!-- 结果 End -->
 
-        <!-- Left Menu Start -->
-        <div id="left-menu">
-            <nav>
-                <ul>
-                    <li id="logout"><a href="#">退出登录</a></li>
-                </ul>
-            </nav>
-        </div>
-        <!-- Left Menu End -->
-
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="barcodescanner.js"></script>
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/hammer.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="barcodescanner.js"></script>
         <script type="text/javascript">
             app.initialize();
-            login.initialize();
-            window.onload = function(){
-                slide.initialize();
-            }
+            user.initialize();
         </script>
     </body>
 </html>

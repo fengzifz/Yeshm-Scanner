@@ -178,7 +178,7 @@ var app = {
     },
 
     setDropdown: function(){
-        $('ul.dropdown-menu li').each(function(){
+        $('ul#select-amount li').each(function(){
             $(this).click(function(){
                 var value = $(this).text();
                 $('#amount').text(value);
@@ -188,24 +188,21 @@ var app = {
     }
 };
 
-var login = {
+// 1. localStorage
+//      未创建的变量：undefined
+//      已经创建的变量，删除时设置为 string 'null'
+var user = {
     initialize: function(){
-        if(window.localStorage.length > 0 || document.cookie.length > 0){
-            login.autoLogin();
-        } else {
-            login.login();
+        if(localStorage.usr && localStorage.usr != 'null'){
+            user.success(); 
         }
+        user.login();
+        user.logout();
     },
 
     autoLogin: function(){
-        if(window.localStorage){ // localStorage
-            if(localStorage.usr && localStorage.pwd){
-                login.success();
-            }
-        } else { // cookie
-            if(getCookie('usr') && getCookie('pwd')){
-                login.success();
-            }
+        if(localStorage.usr == 'damon.chen' && localStorage.pwd == 111111){
+            user.success();
         }
     },
 
@@ -216,70 +213,35 @@ var login = {
                 pwd = S('password').value,
                 exdate = 90,
                 sObj = S('login-status');
+
             e.preventDefault();
+
             if(usr == 'damon.chen' && pwd == 111111){
-                login.success();
-                if(window.localStorage){
-                    localStorage.usr = usr;
-                    localStorage.pwd = pwd;
-                } else { // 不支持localStorage则使用cookie
-                    setCookie('usr', usr, exdate);
-                    setCookie('pwd', usr, exdate);
-                }
+                user.success();
+                localStorage.usr = usr;
+                localStorage.pwd = pwd;
+                
             } else {
                 setStatus('alert alert-danger', '账号或密码错误', sObj);
             }
         });
     },
 
+    logout: function(){
+        $('#logout').on('click', function(){
+            localStorage.usr = 'null';
+            localStorage.pwd = 'null';
+            $('.login-wrapper').show();
+            $('div.result').hide();
+        });
+    },
+
     success: function(){
-        $('.login-wrapper').remove();
+        $('.login-wrapper').hide();
         $('div.result').show();
     }
 };
 
-var slide = {
-    initialize: function(){
-        this.show();
-        this.hide();
-        this.setCSS();
-    },
-
-    setCSS: function(){
-        var w = $('#left-menu').width();
-        $('#left-menu').css('left', -w);
-    },
-
-    show: function(){
-
-        $('#left-menu-btn').on('tap', function(){
-            $('#left-menu').animate({
-                left: 0
-            });
-        });
-
-        (new Hammer(document)).on('dragright', function(){
-            $('#left-menu').animate({
-                left: 0
-            });
-        });
-    },
-
-    hide: function(){
-        var w = $('#left-menu').width();
-        (new Hammer(document)).on('dragleft', function(){
-            $('#left-menu').animate({
-                left: -w
-            });
-        });
-    },
-
-    release: function(){
-        (new Hammer(document)).on('release', function(){
-            $(this).off('dragleft','dragright');
-        });
-    }
-};
 
 // 设置提示语
 function setStatus(theClass, theText, obj){
@@ -297,32 +259,4 @@ function showOrHide(val){
 // `id` is id selector
 function S(id){
     return document.getElementById(id);
-}
-
-function setCookie(cName, value, expiredays){
-    var exdate = new Date();
-    exdate.setDate(exdate.getDate() + expiredays);
-    document.cookie = cName + '=' + escape(value) + ((expiredays == null) ? '' : ';expires=' + exdate.toGMTString());
-}
-
-function getCookie(cName){
-    var cStart, cEnd;
-    if(document.cookie.length > 0){
-        cStart = document.cookie.indexOf(cName + '=');
-        if(cStart != -1){
-            cStart = cStart + cName.length + 1;
-            cEnd = document.cookie.indexOf(';', cStart);
-            if(cEnd == -1){
-                cEnd = document.cookie.length;
-            }
-            return unescape(document.cookie.substring(cStart, cEnd));
-        }
-    }
-    return '';
-}
-
-function deleteCookie(cName){
-    if(getCookie(cName) != 'null'){
-        document.cookie = cName + '=null' + ';expires=0'; 
-    }
 }
