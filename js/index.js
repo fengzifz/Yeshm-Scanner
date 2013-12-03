@@ -1,4 +1,4 @@
-var BASE_URL = 'http://14.20.216.136/index.php/ajax/',
+var BASE_URL = 'http://14.20.211.113/index.php/ajax/',
     CONTENT_TYPE = 'application/json; charset=utf-8',
     JSONP = 'callback',
     DATA_TYPE = 'jsonp',
