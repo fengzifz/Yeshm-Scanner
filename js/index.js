@@ -82,7 +82,7 @@ var app = {
             success: function(data){
 
                 if(data == 0){
-                    setStatus('alert alert-info', 'wao~ 没有该产品');
+                    setStatus('alert alert-info', 'Oh~ 没有该产品');
                 } else {
                     var info = data[0];
                     S('product-info').style.display = 'block';
@@ -205,10 +205,6 @@ var login = {
             } else {
                 setStatus('alert alert-danger', '账号或密码错误', sObj);
             }
-
-            // $('.login-wrapper').hide();
-            // $('body').addClass('result').removeClass('login');
-            // $('div.result').show();
         });
     }
 };
