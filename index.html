@@ -51,6 +51,7 @@
         <!-- 结果 Start -->
         <div class="result">
             <header>
+                <span id="left-menu-btn" class="glyphicon glyphicon-align-justify"></span>
                 <h1 class="text-center">Yeshm Scanner</h1>
             </header>
 
@@ -139,14 +140,28 @@
         </div>
         <!-- 结果 End -->
 
+        <!-- Left Menu Start -->
+        <div id="left-menu">
+            <nav>
+                <ul>
+                    <li id="logout"><a href="#">退出登录</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Left Menu End -->
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="barcodescanner.js"></script>
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/hammer.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
             login.initialize();
+            window.onload = function(){
+                slide.initialize();
+            }
         </script>
     </body>
 </html>

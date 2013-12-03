@@ -290,6 +290,30 @@ ul.dropdown-menu li:nth-child(even){
     font-size: 18px;
 }
 
+/* ==== Left Menu ==== */
+#left-menu-btn {
+    color: #fff;
+    font-size: 30px;
+    float: left;
+    margin-left: 20px;
+}
+
+#left-menu {
+    height: 100%;
+    width: 30%;
+    position: absolute;
+    background: #252525;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    -webkit-box-shadow: inset 10px 0px 20px rgba(0,0,0,.4);
+    /*box-shadow: 0 3px 5px rgba(0,0,0,.5);*/
+}
+
+nav {
+    padding: 30px 20px;
+}
+
 /* 高dpi设备 */
 @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
 
@@ -380,6 +404,11 @@ ul.dropdown-menu li:nth-child(even){
     .topcoat-button .icon {
         font-size: 62px;
         padding-top: 37px;
+    }
+
+    #left-menu-btn {
+        font-size: 38px;
+        margin-left: 25px;
     }
 
 }
