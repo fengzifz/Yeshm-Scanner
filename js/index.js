@@ -12,6 +12,7 @@ var app = {
     initialize: function() {
         this.bindEvents();
         this.buyProduct();
+        this.setDropdown();
     },
 
     // Bind Event Listeners
@@ -20,7 +21,7 @@ var app = {
     // `load`, `deviceready`, `offline`, and `online`.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.getElementById('scan').addEventListener('click', this.scan, false);
+        S('scan').addEventListener('click', this.scan, false);
     },
 
     // deviceready Event Handler
@@ -33,7 +34,7 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
+        var parentElement = S(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
 
@@ -53,7 +54,7 @@ var app = {
                 showOrHide('block');
             }
 
-            document.getElementById('buying-status').style.display = 'none';
+            S('buying-status').style.display = 'none';
 
             if(result.text.length == 0){
                 setStatus('alert alert-info', '没有结果，请重新扫描');
@@ -62,7 +63,7 @@ var app = {
             }
 
         }, function (error) { 
-            var scanError = document.getElementById('scan-error');
+            var scanError = S('scan-error');
             scanError.innerHTML = error;
             scanError.style.display = 'block';
         } );
@@ -81,15 +82,15 @@ var app = {
             success: function(data){
 
                 if(data == 0){
-                    setStatus('alert alert-info', 'wao~ 没有该产品，请到楼下seven eleven购买');
+                    setStatus('alert alert-info', 'wao~ 没有该产品');
                 } else {
                     var info = data[0];
-                    document.getElementById('product-info').style.display = 'block';
-                    document.getElementById('pro-name').innerHTML = info['name'];
-                    document.getElementById('pro-price').innerHTML = info['price'];
-                    document.getElementById('pro-amount').innerHTML = info['amount'];
-                    document.getElementById('pro-barcode').innerHTML = info['barcode'];
-                    document.getElementById('pro-pid').setAttribute('value', info['id']);
+                    S('product-info').style.display = 'block';
+                    S('pro-name').innerHTML = info['name'];
+                    S('pro-price').innerHTML = info['price'];
+                    S('pro-amount').innerHTML = info['amount'];
+                    S('pro-barcode').innerHTML = info['barcode'];
+                    S('pro-pid').setAttribute('value', info['id']);
                 }
             },
             error: function(err){
@@ -164,7 +165,7 @@ var app = {
             timeout: TIME_OUT,
             success: function(data){
                 var info = data[0];
-                document.getElementById('pro-amount').innerHTML = info['amount'];
+                S('pro-amount').innerHTML = info['amount'];
                 showOrHide('none');
             },
             error: function(){
@@ -173,6 +174,16 @@ var app = {
             complete: function(){
                 showOrHide('none');
             }
+        });
+    },
+
+    setDropdown: function(){
+        $('ul.dropdown-menu li').each(function(){
+            $(this).click(function(){
+                var value = $(this).text();
+                $('#amount').text(value);
+                $('#pro-num').val(value);
+            });
         });
     }
 };
@@ -184,21 +195,38 @@ var login = {
 
     login: function(){
         $('#login').click(function(e){
+            var usr = S('username').value,
+                pwd = S('password').value,
+                sObj = S('login-status');
             e.preventDefault();
-            $('.login-wrapper').hide();
-            $('body').addClass('result').removeClass('login');
-            $('div.result').show();
+            if(usr == 'damon.chen' && pwd == 111111){
+                $('.login-wrapper').remove();
+                $('div.result').show();
+            } else {
+                setStatus('alert alert-danger', '账号或密码错误', sObj);
+            }
+
+            // $('.login-wrapper').hide();
+            // $('body').addClass('result').removeClass('login');
+            // $('div.result').show();
         });
     }
 };
 
-function setStatus(theClass, theText){
-    var status = document.getElementById('buying-status');
+// 设置提示语
+function setStatus(theClass, theText, obj){
+    var status = obj || S('buying-status');
     status.style.display = 'block';
     status.className = theClass;
     status.innerHTML = theText;
 }
 
+// 隐藏或者显示loading层
 function showOrHide(val){
-    document.getElementById('loading-wrapper').style.display = val;
+    S('loading-wrapper').style.display = val;
+}
+
+// `id` is id selector
+function S(id){
+    return document.getElementById(id);
 }

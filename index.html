@@ -8,7 +8,9 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
     </head>
-    <body class="login">
+
+    <!-- body class: login, result, scan -->
+    <body class="result">
 
         <!-- loading start -->
         <div id="loading-wrapper">
@@ -22,7 +24,7 @@
         <!-- loading end -->
 
         <!-- login start -->
-        <div class="login-wrapper">
+        <div class="login-wrapper" style="display:none;">
             <div class="login">
                 <div class="row input-group-lg">
                     <input id="username" type="text" name="username" class="col-xs-12 form-control" placeholder="用户名" />
@@ -32,6 +34,9 @@
                 </div>
                 <div class="row">
                     <button id="login" class="btn btn-primary btn-lg btn-block">登陆</button>
+                </div>
+                <div class="row">
+                    <div id="login-status"></div>
                 </div>
             </div>
         </div>
@@ -44,7 +49,7 @@
         <!-- 扫描 End -->
 
         <!-- 结果 Start -->
-        <div class="result">
+        <div class="result" style="display:block;">
             <header>
                 <h1 class="text-center">Yeshm Scanner</h1>
             </header>
@@ -85,7 +90,7 @@
                         <div class="col-xs-3 text-right p-l">购买数量:</div> 
                         <div id="select-num" class="col-xs-9 p-d">
                             <button id="amount" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">1</button>
-                            <ul class="dropdown-menu" role="menu">
+                            <ul id="select-amount" class="dropdown-menu" role="menu">
                                 <li>1</li>
                                 <li>2</li>
                                 <li>3</li>
@@ -138,7 +143,6 @@
         <script type="text/javascript" src="barcodescanner.js"></script>
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/ui.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
