@@ -394,7 +394,8 @@ header .dropdown {
         padding-top: 37px;
     }
 
-    #nav {
+    #nav,
+    #nav-list {
         font-size: 38px;
     }
 
