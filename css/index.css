@@ -287,6 +287,7 @@ ul.dropdown-menu li:nth-child(even){
 
 #login-status {
     text-align: center;
+    font-size: 18px;
 }
 
 /* 高dpi设备 */
@@ -345,6 +346,10 @@ ul.dropdown-menu li:nth-child(even){
     #username,
     #password {
         padding: 40px 16px;
+        font-size: 30px;
+    }
+
+    #login-status {
         font-size: 30px;
     }
 
